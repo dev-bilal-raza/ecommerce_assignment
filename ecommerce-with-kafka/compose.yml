@@ -5,63 +5,63 @@ services:
 #===============================================================================================
   user:
     build: 
-      context: ./user-services
-      dockerfile: dockerfile
+      context: ./user-service
+      dockerfile: Dockerfile
     ports:
-      - 8001:8000
+      - 8081:8081
     depends_on:
       - kafka
       - database
 #===============================================================================================
-  inventory:
-    build: 
-      context: ./inventory-services
-      dockerfile: dockerfile
-    ports:
-      - 8002:8000
-    depends_on:
-      - kafka
-      - database
+  # inventory:
+  #   build: 
+  #     context: ./inventory-services
+  #     dockerfile: dockerfile
+  #   ports:
+  #     - 8082:8082
+  #   depends_on:
+  #     - kafka
+  #     - database
 #===============================================================================================
-  notification:
-    build: 
-      context: ./notification-services
-      dockerfile: dockerfile
-    ports:
-      - 8003:8000
-    depends_on:
-      - kafka
-      - database
+  # notification:
+  #   build: 
+  #     context: ./notification-services
+  #     dockerfile: dockerfile
+  #   ports:
+  #     - 8083:8083
+  #   depends_on:
+  #     - kafka
+  #     - database
 #===============================================================================================
-  order:
-    build: 
-      context: ./order-services
-      dockerfile: dockerfile
-    ports:
-      - 8004:8000
-    depends_on:
-      - kafka
-      - database
+  # order:
+  #   build: 
+  #     context: ./order-services
+  #     dockerfile: dockerfile
+  #   ports:
+  #     - 8084:8084
+  #   depends_on:
+  #     - kafka
+  #     - database
 #===============================================================================================
-  payment:
-    build: 
-      context: ./payment-services
-      dockerfile: dockerfile
-    ports:
-      - 8005:8000
-    depends_on:
-      - kafka
-      - database
+  # payment:
+  #   build: 
+  #     context: ./payment-services
+  #     dockerfile: dockerfile
+  #   ports:
+  #     - 8085:8085
+  #   depends_on:
+  #     - kafka
+  #     - database
 #===============================================================================================
-  product:
-    build: 
-      context: ./product-services
-      dockerfile: dockerfile
-    ports:
-      - 8006:8000
-    depends_on:
-      - kafka
-      - database
+  # product:
+  #   build: 
+  #     context: ./product-services
+  #     dockerfile: dockerfile
+  #   ports:
+  #     - 8086:8086
+  #   depends_on:
+  #     - kafka
+  #     - database
 #===============================================================================================
   database:
     image: postgres:latest  # Use the official PostgreSQL image
@@ -111,9 +111,9 @@ services:
       - kafka
 #===============================================================================================
 
-
-
-
+volumes:
+  postgres_db:
+    driver: local
 
 
   
